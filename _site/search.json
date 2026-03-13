@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "main.html",
+    "href": "main.html",
+    "title": "Bienvenue sur mon Portfolio",
+    "section": "",
+    "text": "Je débute avec Quarto et je construis mon portfolio pour GitHub Pages\n\n\n\nComputer Graphics\nComputer Vision\n\n\n\n\nRandom python code\n\n\nCode\nimport matplotlib.pyplot as plt\n\nx = [1, 2, 3, 4]\ny = [10, 20, 25, 30]\n\nplt.plot(x, y)\nplt.show()"
+  },
+  {
+    "objectID": "main.html#à-propos-de-moi",
+    "href": "main.html#à-propos-de-moi",
+    "title": "Bienvenue sur mon Portfolio",
+    "section": "",
+    "text": "Je débute avec Quarto et je construis mon portfolio pour GitHub Pages\n\n\n\nComputer Graphics\nComputer Vision\n\n\n\n\nRandom python code\n\n\nCode\nimport matplotlib.pyplot as plt\n\nx = [1, 2, 3, 4]\ny = [10, 20, 25, 30]\n\nplt.plot(x, y)\nplt.show()"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "site_quarto",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]
