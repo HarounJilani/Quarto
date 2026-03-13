@@ -1,7 +1,29 @@
 ---
-title: "site_quarto"
+title: "Bienvenue sur mon Portfolio"
+format:
+    html:
+        code-fold: true
+jupyter: python3
 ---
 
-This is a Quarto website.
+## À propos de moi
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Je débute avec **Quarto** et je construis mon portfolio pour GitHub Pages
+
+### Mes Compétences
+* Computer Graphics
+* Computer Vision
+
+
+### Exemple de bloc de code
+Random python code
+
+```{python}
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 25, 30]
+
+plt.plot(x, y)
+plt.show()
+```

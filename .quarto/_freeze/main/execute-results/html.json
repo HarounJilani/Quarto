@@ -2,7 +2,7 @@
   "hash": "61951246ea388cad5b27f86570ab662d",
   "result": {
     "engine": "jupyter",
-    "markdown": "---\ntitle: \"Bienvenue sur mon Portfolio\"\nformat:\n    html:\n        code-fold: true\njupyter: python3\n---\n\n## À propos de moi\n\nJe débute avec **Quarto** et je construis mon portfolio pour GitHub Pages\n\n### Mes Compétences\n* Computer Graphics\n* Computer Vision\n\n\n### Exemple de bloc de code\nRandom python code\n\n::: {#eff3fe1a .cell execution_count=1}\n``` {.python .cell-code}\nimport matplotlib.pyplot as plt\n\nx = [1, 2, 3, 4]\ny = [10, 20, 25, 30]\n\nplt.plot(x, y)\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](main_files/figure-html/cell-2-output-1.png){width=579 height=411}\n:::\n:::\n\n\n",
+    "markdown": "---\ntitle: \"Bienvenue sur mon Portfolio\"\nformat:\n    html:\n        code-fold: true\njupyter: python3\n---\n\n## À propos de moi\n\nJe débute avec **Quarto** et je construis mon portfolio pour GitHub Pages\n\n### Mes Compétences\n* Computer Graphics\n* Computer Vision\n\n\n### Exemple de bloc de code\nRandom python code\n\n::: {#8a9c2ed0 .cell execution_count=1}\n``` {.python .cell-code}\nimport matplotlib.pyplot as plt\n\nx = [1, 2, 3, 4]\ny = [10, 20, 25, 30]\n\nplt.plot(x, y)\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](main_files/figure-html/cell-2-output-1.png){width=579 height=411}\n:::\n:::\n\n\n",
     "supporting": [
       "main_files"
     ],
