@@ -1,29 +1,81 @@
----
-title: "Bienvenue sur mon Portfolio"
-format:
-    html:
-        code-fold: true
-jupyter: python3
----
+<style>
+  #viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a2e;
+  }
+</style>
 
-## À propos de moi
+<div id="viewer"></div>
 
-Je débute avec **Quarto** et je construis mon portfolio pour GitHub Pages
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
-### Mes Compétences
-* Computer Graphics
-* Computer Vision
+<script>
+window.addEventListener('load', function () {
+  const container = document.getElementById('viewer');
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 10000);
+  
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
+
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  const dir = new THREE.DirectionalLight(0xffffff, 1);
+  dir.position.set(5, 10, 5);
+  scene.add(dir);
+
+  const loader = new THREE.GLTFLoader();
+  loader.load('low_poly_car.glb', function (gltf) {
+    const model = gltf.scene;
+    scene.add(model);
+
+    const box = new THREE.Box3().setFromObject(model);
+    const center = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    model.position.set(-center.x, -box.min.y, -center.z);
+
+    // Extraction de la plus grande dimension de l'objet
+    const d = Math.max(size.x, size.y, size.z);
+
+    camera.position.set(d * 1.5, d * 1.5, d * 1.5);
+    camera.far = d * 10; 
+    camera.updateProjectionMatrix();
+    controls.target.set(0, size.y / 2, 0);
+
+ 
+    const gridHelper = new THREE.GridHelper(d * 5, 50);
+    scene.add(gridHelper);
+    const axesHelper = new THREE.AxesHelper(d * 2);
+    scene.add(axesHelper);
+  });
 
 
-### Exemple de bloc de code
-Random python code
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
 
-```{python}
-import matplotlib.pyplot as plt
 
-x = [1, 2, 3, 4]
-y = [10, 20, 25, 30]
-
-plt.plot(x, y)
-plt.show()
-```
+  window.addEventListener('resize', function() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+});
+</script>

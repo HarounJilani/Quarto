@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - "*.glb"
 
 website:
   title: "Mon Portfolio"
@@ -17,6 +19,3 @@ format:
       - brand
     css: styles.css
     toc: true
-
-
-
