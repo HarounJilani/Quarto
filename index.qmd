@@ -143,7 +143,7 @@ La prise de vue a été réalisée avec un smartphone (Google Pixel 6a), produis
 
 La génération du maillage dans RealityScan a convergé rapidement grâce à la régularité de la prise de vue.
 
-[Voir le code source sur GitHub](https://github.com/votre_lien)
+[Voir le code source sur GitHub](https://github.com/HarounJilani/Quarto)
 :::
 
 ::: {.column width="40%"}
