@@ -18,6 +18,83 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "Profil\nJe suis Haroun Jilani, étudiant en Master 1 ISICG à l’Université de Limoges.\n\n\n\nDomaines d’intérêt technique\n\nRendu réaliste (PBR) : simulation du transport de la lumière et modèles de matériaux physiques.\nRendu inverse : reconstruction de géométries et de textures à partir de captures réelles (Photogrammétrie).\nCalcul GPGPU / CUDA : optimisation et parallélisation d’algorithmes de rendu et de traitement de données sur GPU.\n\n\n\n\nLiens et contact\n\nLinkedIn\nGitHub\nEmail : harounjilani@outlook.com"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "SIRI - Projet photogrammétrie",
+    "section": "",
+    "text": "Ce projet a pour objectif la reconstruction 3D d’une figurine de marin à partir d’une série de photos.\nLa prise de vue a été réalisée avec un smartphone (Google Pixel 6a), produisant environ 150 images. La capture a été effectuée à l’aide d’un plateau tournant. Dans cette configuration, le fond blanc uni empêche l’algorithme de photogrammétrie (Structure from motion) d’extraire des points de repère sur le mur. Cela garantit une estimation de pose correcte, en forçant le calcul 3D uniquement sur la figurine en rotation.\nLa génération du maillage dans RealityScan a convergé rapidement grâce à la régularité de la prise de vue.\nVoir le code source sur GitHub\n\n\n\n\n\nAcquisition : appareil photo (Pixel 6a) / Plateau tournant\nReconstruction : RealityScan\nOrientation : Blender (axe Y vers le haut)\nAffichage web : Three.js\n\n\n\n\n\n\n\nLe post-traitement s’est déroulé en deux étapes :\n\nNettoyage : suppression directe dans RealityScan des artefacts générés par le fond blanc.\nOrientation : utilisation de Blender uniquement pour orienter l’objet (axe Y vers le haut) afin qu’il s’affiche avec le bon alignement dans Three.js.\n\n\n\n\n\n\n\nObjet réel (Photo de référence)\n\n\n\n\n\n\n\nModèle 3D ajusté et orienté"
+  },
+  {
+    "objectID": "index.html#modèle-interactif",
+    "href": "index.html#modèle-interactif",
+    "title": "Modélisation 3D par Photogrammétrie",
+    "section": "Modèle Interactif",
+    "text": "Modèle Interactif"
+  },
+  {
+    "objectID": "index.html#contexte-du-projet",
+    "href": "index.html#contexte-du-projet",
+    "title": "SIRI - Projet photogrammétrie",
+    "section": "",
+    "text": "L’objectif de ce projet SIRI est de reconstruire un modèle 3D exploitable à partir d’un objet réel en utilisant les techniques de photogrammétrie.\nPlusieurs conditions ont été nécessaires pour assurer un rendu précis : * Utilisation d’un éclairage uniforme pour éviter les ombres portées trompeuses lors de la capture. * Placement de l’objet sur une surface avec des marqueurs spatiaux (cercles, croix) pour guider l’algorithme d’alignement des caméras. * Acquisition d’une série de photos à 360 degrés sous trois angles d’élévation différents.\nVoir le code source sur GitHub\n\n\n\n\nAcquisition & Nettoyage initial : RealityScan\nAjustements spatiaux : Blender (Orientation de l’objet, recadrage)\nRendu Web interactif : Three.js"
+  },
+  {
+    "objectID": "index.html#étude-comparative-du-maillage",
+    "href": "index.html#étude-comparative-du-maillage",
+    "title": "Modélisation 3D par Photogrammétrie",
+    "section": "Étude comparative du maillage",
+    "text": "Étude comparative du maillage\nL’acquisition brute génère un bruit numérique important. Un post-traitement rigoureux est nécessaire pour obtenir un modèle optimisé pour le web (réduction du nombre de polygones et lissage des normales).\n\n\n\n\n\n\nObjet réel (Photo de référence)\n\n\n\n\n\n\n\nModèle 3D optimisé et rendu"
+  },
+  {
+    "objectID": "index.html#retouches-post-acquisition",
+    "href": "index.html#retouches-post-acquisition",
+    "title": "SIRI - Projet photogrammétrie",
+    "section": "",
+    "text": "Suite à l’acquisition, le modèle a nécessité des ajustements pour être correctement présenté. Les outils de RealityScan ont permis d’isoler l’objet de son environnement de capture. Blender a ensuite été utilisé pour corriger le pivot et l’alignement global du modèle sur les axes (XYZ), garantissant une rotation naturelle lors de l’interaction web.\n\n\n\n\n\n\nObjet réel (Photo de référence)\n\n\n\n\n\n\n\nModèle 3D ajusté et orienté"
+  },
+  {
+    "objectID": "index.html#modèle-3d-interactif",
+    "href": "index.html#modèle-3d-interactif",
+    "title": "SIRI - Projet Photogrammétrie",
+    "section": "Modèle 3D Interactif",
+    "text": "Modèle 3D Interactif\n\n\n\n\n\nChargement du modèle…"
+  },
+  {
+    "objectID": "index.html#technologies-utilisées",
+    "href": "index.html#technologies-utilisées",
+    "title": "SIRI - Projet Photogrammétrie",
+    "section": "Technologies Utilisées",
+    "text": "Technologies Utilisées\n\nRealityScan : Acquisition photogrammétrique\nBlender : Nettoyage et retopologie\nThree.js : Rendu web interactif"
+  },
+  {
+    "objectID": "index.html#description-du-projet",
+    "href": "index.html#description-du-projet",
+    "title": "SIRI - Projet Photogrammétrie",
+    "section": "Description du Projet",
+    "text": "Description du Projet\n\n\n\n\n\n\nChaussure originale\n\n\n\n\nLe projet consiste à créer un modèle 3D d’une chaussure à partir d’un ensemble de 130 images à l’aide de la photogrammétrie. Le modèle a été généré à l’aide du logiciel RealityScan.\nPlusieurs essais ont été nécessaires pour obtenir des résultats satisfaisants. Le meilleur résultat a été obtenu en plaçant la chaussure sur une feuille de papier blanc marquée de cercles et de croix, fournissant des références visuelles au logiciel.\nLe modèle compressé utilise la bibliothèque Draco pour optimiser le chargement dans Three.js.\nLien vers le dépôt GitHub"
+  },
+  {
+    "objectID": "index.html#nettoyage-et-post-traitement",
+    "href": "index.html#nettoyage-et-post-traitement",
+    "title": "SIRI - Projet Photogrammétrie",
+    "section": "Nettoyage et Post-traitement",
+    "text": "Nettoyage et Post-traitement\nComparaison avant et après le nettoyage effectué dans Blender.\n\n\n\n\n\n\nModèle brut généré\n\n\n\n\n\n\n\nModèle nettoyé et optimisé"
+  },
+  {
+    "objectID": "index.html#post-traitement",
+    "href": "index.html#post-traitement",
+    "title": "SIRI - Reconstruction 3D par photogrammétrie",
+    "section": "Post-traitement",
+    "text": "Post-traitement\nLe post-traitement s’est déroulé en deux étapes :\n\nNettoyage : suppression directe dans RealityScan des artefacts générés par le fond blanc.\nOrientation : utilisation de Blender uniquement pour orienter l’objet (axe Y vers le haut) afin qu’il s’affiche avec le bon alignement dans Three.js.\n\n\nComparaison : réel vs modèle 3D\n\n\n\n\n\n\nObjet réel (photo de référence)\n\n\n\n\n\n\n\nModèle 3D ajusté et orienté"
+  },
+  {
+    "objectID": "index.html#post-traitement-1",
+    "href": "index.html#post-traitement-1",
+    "title": "SIRI - Projet photogrammétrie",
+    "section": "Post-traitement",
+    "text": "Post-traitement\nLe post-traitement s’est déroulé en deux étapes : 1. Nettoyage : suppression directe dans RealityScan des artefacts générés par le fond blanc. 2. Orientation : utilisation de Blender uniquement pour orienter l’objet (axe Y vers le haut) afin qu’il s’affiche avec le bon alignement dans Three.js.\n\n\n\n\n\n\nObjet réel (Photo de référence)\n\n\n\n\n\n\n\nModèle 3D ajusté et orienté"
   }
 ]

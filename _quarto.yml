@@ -5,17 +5,18 @@ project:
     - "*.glb"
 
 website:
-  title: "Mon Portfolio"
+  title: "Portfolio SIRI"
   navbar:
+    background: "#121212"
+    foreground: "#ffffff"
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "About"
+        href: about.qmd
 
 format:
   html:
     theme:
-      - darkly
+      - slate
       - brand
     css: styles.css
     toc: true

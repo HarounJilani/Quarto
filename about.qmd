@@ -1,5 +1,50 @@
 ---
 title: "About"
+title-block-banner: false
+toc: false
+format:
+  html:
+    theme: slate
+    page-layout: article
 ---
 
-About this site
+<style>
+  .title {
+    display: none;
+  }
+
+  body {
+    color: #f8f9fa !important;
+    background-color: #121212 !important;
+    font-size: 1.1rem;
+  }
+
+  h1, h2, h3, h4, a {
+    color: #ffffff !important;
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+</style>
+
+
+### Profil
+Je suis Haroun Jilani, étudiant en **Master 1 ISICG** à l'Université de **Limoges**.
+
+---
+
+### Domaines d'intérêt technique
+
+*   **Rendu réaliste (PBR)** : simulation du transport de la lumière et modèles de matériaux physiques.
+*   **Rendu inverse** : reconstruction de géométries et de textures à partir de captures réelles (Photogrammétrie).
+*   **Calcul GPGPU / CUDA** : optimisation et parallélisation d'algorithmes de rendu et de traitement de données sur GPU.
+
+---
+
+### Liens et contact
+
+*   [LinkedIn](https://www.linkedin.com/in/haroun-jilani-823a19321/)
+*   [GitHub](https://github.com/HarounJilani)
+*   Email : harounjilani@outlook.com

@@ -7,5 +7,8 @@
   },
   "main.qmd": {
     "main.html": "9f7fde5c"
+  },
+  "./index.qmd": {
+    "index.html": "9fe9b434"
   }
 }

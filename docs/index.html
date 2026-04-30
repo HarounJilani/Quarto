@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mon Portfolio</title>
+<title>SIRI - Reconstruction 3D par photogrammétrie – Portfolio SIRI</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-56a1e3db71204dfbc8a885484c5b40f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-00feface57a40fb7a06c8694f9a70c45.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-233a11cfc5eff830e53fe5aec311b75b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Mon Portfolio</span>
+    <span class="navbar-title">Portfolio SIRI</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -92,10 +92,6 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
@@ -111,29 +107,67 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">SIRI - Reconstruction 3D par photogrammétrie</h1>
+<p class="subtitle lead">Projet de synthèse d’images réalistes par rendu inverses (SIRI)</p>
+</div>
 
 
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <style>
-  #viewer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    margin: 0;
-    padding: 0;
-    background-color: #1a1a2e;
+  body {
+    color: #f8f9fa !important;
+    background-color: #121212 !important;
+    font-size: 1.1rem;
   }
+
+  h1, h2, h3, h4, a {
+    color: #ffffff !important;
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+#viewer-container {
+  width: 100%;
+  height: 75vh;
+  min-height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
+  
+  background: radial-gradient(circle, #525252 0%, #1c1c1c 100%);
+  
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  
+  border: 1px solid #111111; 
+}
+
 </style>
-<div id="viewer">
+<div class="column-page-inset">
+<div id="viewer-container">
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -141,26 +175,40 @@ ul.task-list li input[type="checkbox"] {
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script>
 window.addEventListener('load', function () {
-  const container = document.getElementById('viewer');
+  const container = document.getElementById('viewer-container');
+
+  let width = container.clientWidth;
+  let height = container.clientHeight;
 
   const scene = new THREE.Scene();
 
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 10000);
+  const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 10000);
   
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(width, height);
+  renderer.outputEncoding = THREE.sRGBEncoding; 
+  renderer.toneMapping = THREE.ReinhardToneMapping;
+  renderer.toneMappingExposure = 0.75;
   container.appendChild(renderer.domElement);
 
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+
   const dir = new THREE.DirectionalLight(0xffffff, 1);
   dir.position.set(5, 10, 5);
   scene.add(dir);
 
+  const hemiLight = new THREE.HemisphereLight(0xffffff, 0x888888, 1.0);
+  scene.add(hemiLight);
+  
+  const backLight = new THREE.DirectionalLight(0xffffff, 1.0);
+  backLight.position.set(-5, 5, -10); 
+  scene.add(backLight);
+
   const loader = new THREE.GLTFLoader();
-  loader.load('low_poly_car.glb', function (gltf) {
+  loader.load('marin_2.glb', function (gltf) {
     const model = gltf.scene;
     scene.add(model);
 
@@ -168,8 +216,8 @@ window.addEventListener('load', function () {
     const center = box.getCenter(new THREE.Vector3());
     const size = box.getSize(new THREE.Vector3());
     model.position.set(-center.x, -box.min.y, -center.z);
+    model.position.y = -box.min.y - 0.01;
 
-    // Extraction de la plus grande dimension de l'objet
     const d = Math.max(size.x, size.y, size.z);
 
     camera.position.set(d * 1.5, d * 1.5, d * 1.5);
@@ -177,13 +225,11 @@ window.addEventListener('load', function () {
     camera.updateProjectionMatrix();
     controls.target.set(0, size.y / 2, 0);
 
- 
     const gridHelper = new THREE.GridHelper(d * 5, 50);
     scene.add(gridHelper);
     const axesHelper = new THREE.AxesHelper(d * 2);
     scene.add(axesHelper);
   });
-
 
   function animate() {
     requestAnimationFrame(animate);
@@ -192,19 +238,83 @@ window.addEventListener('load', function () {
   }
   animate();
 
-
   window.addEventListener('resize', function() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    width = container.clientWidth;
+    height = container.clientHeight;
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
   });
 });
 </script>
-
-
+</div>
+<hr>
+<div class="columns">
+<div class="column" style="width:60%;">
+<section id="description-de-lapproche" class="level3">
+<h3 class="anchored" data-anchor-id="description-de-lapproche">Description de l’approche :</h3>
+<p>Ce projet a pour objectif la reconstruction 3D d’une figurine de marin à partir d’une série de photos.</p>
+<p>La prise de vue a été réalisée avec un smartphone (Google Pixel 6a), produisant environ 150 images. La capture a été effectuée à l’aide d’un plateau tournant. Dans cette configuration, le fond blanc uni empêche l’algorithme de photogrammétrie (<em>Structure from motion</em>) d’extraire des points de repère sur le mur. Cela garantit une estimation de pose correcte, en forçant le calcul 3D uniquement sur la figurine en rotation.</p>
+<p>La génération du maillage dans RealityScan a convergé rapidement grâce à la régularité de la prise de vue.</p>
+<p><a href="https://github.com/votre_lien">Voir le code source sur GitHub</a></p>
+</section>
+</div><div class="column" style="width:40%;">
+<section id="technologies" class="level3">
+<h3 class="anchored" data-anchor-id="technologies">Technologies :</h3>
+<ul>
+<li><strong>Acquisition</strong> : appareil photo (Pixel 6a) / Plateau tournant</li>
+<li><strong>Reconstruction</strong> : RealityScan</li>
+<li><strong>Orientation</strong> : Blender (axe Y vers le haut)</li>
+<li><strong>Affichage web</strong> : Three.js</li>
+</ul>
+</section>
+</div>
+</div>
+<hr>
+<section id="post-traitement" class="level2">
+<h2 class="anchored" data-anchor-id="post-traitement">Post-traitement</h2>
+<p>Le post-traitement s’est déroulé en deux étapes :</p>
+<ol type="1">
+<li><strong>Nettoyage</strong> : suppression directe dans RealityScan des artefacts générés par le fond blanc.</li>
+<li><strong>Orientation</strong> : utilisation de Blender uniquement pour orienter l’objet (axe Y vers le haut) afin qu’il s’affiche avec le bon alignement dans Three.js.</li>
+</ol>
+<section id="comparaison-réel-vs-modèle-3d" class="level3">
+<h3 class="anchored" data-anchor-id="comparaison-réel-vs-modèle-3d">Comparaison : réel vs modèle 3D</h3>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="marin_reel.jpg" class="comparaison-img img-fluid figure-img"></p>
+<figcaption>Objet réel (photo de référence)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="marin_capture.png" class="comparaison-img img-fluid figure-img"></p>
+<figcaption>Modèle 3D ajusté et orienté</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<style>
+<p>.comparaison-img { height: 400px;<br />
+object-fit: cover; width: 100%;<br />
+border-radius: 4px; } &lt;/style</p>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">Portfolio SIRI</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">Portfolio SIRI</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6QWJvdXQ=">About</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Fib3V0Lmh0bWw=">/about.html</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">SIRI - Reconstruction 3D par photogrammétrie – Portfolio SIRI</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">SIRI - Reconstruction 3D par photogrammétrie – Portfolio SIRI</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">SIRI - Reconstruction 3D par photogrammétrie – Portfolio SIRI</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Portfolio SIRI</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Projet de synthèse d’images réalistes par rendu inverses (SIRI)</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Projet de synthèse d’images réalistes par rendu inverses (SIRI)</span></p>
+</div>
+</section>
+</section>
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -606,7 +716,7 @@ window.addEventListener('load', function () {
   </script>
 </div> <!-- /content -->
 
+</body>
 
-
-
-</body></html>
+</html>
+</style></section></section></main></div></body></html>
